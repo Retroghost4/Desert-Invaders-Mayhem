@@ -1,6 +1,6 @@
 import pygame
 from settings import BULLET_SIZE
-from bullet import Bullet
+from bullets import Bullet
 
 class Buggies(pygame.sprite.Sprite):
     def __init__(self, pos, size, row_num):
