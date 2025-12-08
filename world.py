@@ -16,6 +16,16 @@ class World:
     self.game_level = 1
     self._generate_world()
 
+  def _generate_buggies(self):
+    buggie_cols =(WIDTH // CHARACTER_SIZE) // 2
+    buggie_rows = 3 
+    for y in range(buggie_rows):
+      for x in range(buggie_cols):
+        my_x = CHARACTER_SIZE * x
+        my_y = CHARACTER_SIZE * y
+        specific_pos = (my_x, my_y)
+        self.buggies.add(Buggies(specific_pos, CHARACTER_SIZE, y))
+
   def _generate_world(self):
     player_x, player_y = WIDTH //2, HEIGHT - CHARACTER_SIZE
     center_size = CHARACTER_SIZE // 2
