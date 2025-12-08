@@ -100,7 +100,7 @@ class World:
   def _check_game_state(self):
    if self.player.sprite.life <= 0:
     self.game_over = True
-    self.display.game_overmessage()
+    self.display.game_over_message()
    for buggie in self.buggies.sprites():
     self.game_over = True
     self.display.game_over_message()
@@ -108,14 +108,14 @@ class World:
   
    if len(self.buggies) == 0 and self.player.sprite.life > 0:
     self.game_level += 1
-    self.generate_buggies()
+    self._generate_buggies()
     for buggie in self.buggies.sprites():
       buggie.move_speed += self.game_level -1
 
   def update(self):
     self._detect_collisions()
-    self.buggie_movement()
-    self._buggie.shoot()
+    self._buggies_movement()
+    self._buggie_shoot()
 
     self.player.sprite.player_bullets.update()
     self.player.sprite.player_bullets.draw(self.screen)
