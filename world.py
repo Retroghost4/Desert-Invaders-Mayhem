@@ -42,7 +42,7 @@ class World:
 
   def player_move(self, attack = False):
    keys = pygame.key.get_pressed()
-   if keys[pygame.K_a] and not self.game_over or keys[pygame.KLEFT] and not self.game_over:
+   if keys[pygame.K_a] and not self.game_over or keys[pygame.K_LEFT] and not self.game_over:
     if self.player.sprite.rect.left > 0:
       self.player.sprite.move_left()
    if keys[pygame.K_d] and not self.game_over or keys[pygame.K_RIGHT] and not self.game_over:
