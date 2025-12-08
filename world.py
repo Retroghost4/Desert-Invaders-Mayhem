@@ -29,9 +29,6 @@ class World:
     self.display.show_life(self.player.sprite.life)
     self.display.show_score(self.player_score)
     self.display.show_level(self.game_level)
-    self.display.show_life(self.player.sprite.life)
-    self.display.show_score(self.player_score)
-    self.display.show_level(self.game_level)
 
 def player_move(self, attack = False):
   keys = pygame.key.get_pressed()
@@ -69,4 +66,18 @@ def _detect_collisions(self):
   buggie_to_player_collision = pygame.sprite.groupcollide(self.buggies, self_player, True, False)
   if buggie_to_player_collison:
     self.player.sprite.liefe -= 1
+
+def _buggies_movement(self):
+  move_sideward = False
+  move_forward = False
+
+  for buggie in self.buggies.sprites():
+    if buggie.to_direction == "right" and buggie.rect.right < WIDTH or buggie.to_direction == "left" and buggie.rect.left > 0:
+      move_sideward = True
+      move_forward = False
+    else:
+      move_sideward = False
+      move_forward = True
+      buggie.to_direction = "left" if buggie.to_direction == "right" else "right"
+      break
       
