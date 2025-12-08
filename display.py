@@ -9,7 +9,7 @@ class Display:
     self.score_font = pygame.font.SysFont("monospace", FONT_SIZE)
     self.level_font = pygame.font.SysFont("impact", FONT_SIZE)
     self.event_font = pygame.font.SysFont("impact", EVENT_FONT_SIZE)
-    self.text_color = pygame.color("black")
+    self.text_color = pygame.Color("black")
     self.event_color = pygame.Color("red")
 
 def show_life(self, life): 
