@@ -80,4 +80,48 @@ def _buggies_movement(self):
       move_forward = True
       buggie.to_direction = "left" if buggie.to_direction == "right" else "right"
       break
+
+def _buggie_shoot(self):
+  for buggie in self.buggies.sprites():
+    if (WIDTH - buggie.rect.x) // CHARACTER_SIZE == (WIDTH - self.player.sprite.rect.x) // CHARACTER_SIZE:
+      buggie._shoot()
+      break
+
+def _check_game_state(self):
+  if self.player.sprite.life <= 0:
+    self.game_over = True
+    self.display.game_overmessage()
+  for buggie in self.buggies.sprites():
+    self.game_over = True
+    self.display.game_over_message()
+    break
+  
+  if len(self.buggies) == 0 and self.player.sprite.life > 0:
+    self.game_level += 1
+    self.generate_buggies()
+    for buggie in self.buggies.sprites():
+      buggie.move_speed += self.game_level -1
+
+def update(self):
+  self.detect_collisions()
+  self.buggie_movement()
+  self._buggie.shoot()
+
+  self.player.sprite.player_bullets.update()
+  self.player.sprite.player_bullets.draw(self.screen)
+
+  [buggie.bullets.update() for buggie in self.buggies.sprites()]
+  [buggie.bullets.draw(self.screen) for buggie in self.buggies.sprites()]
+
+  self.player.update()
+  self.player.draw(self.screen)
+
+  self.buggies.draw(self.screen)
+  self.add_additionals()
+  self._check_game_state()
+  
+  
+  
+
+
       
