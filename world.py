@@ -113,7 +113,7 @@ class World:
       buggie.move_speed += self.game_level -1
 
   def update(self):
-    self.detect_collisions()
+    self._detect_collisions()
     self.buggie_movement()
     self._buggie.shoot()
 
