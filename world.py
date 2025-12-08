@@ -41,5 +41,32 @@ def player_move(self, attack = False):
   if keys[pygame.K_d] and not self.game_over or keys[pygame.K_RIGHT] and not self.game_over:
     if self.player.sprite.rect.right < WIDTH:
       self.player.sprite.move_right()
-  
+  if keys[pygame.K_w] and not self.game_over or keys[pygame.K_UP] and not self.game_over:
+    if self.player.sprite.rect.top > 0:
+      self.player.sprite.move_up()
+  if keys[pygame.K_s] and not self.game_over or keys[pygame.K_DOWN] and not self.game_over:
+    if self.player.sprite.rect.bottom < HEIGHT:
+      self.player.sprite.move_bottom()
+  if keys[pygame.K_r]:
+    self.game_over = False
+    self.player_score = 0
+    self.game_level = 1
+    for buggie in self.buggies.sprites():
+      buggie.kill()
+    self._generate_world()
+  if attack and not self.game_over:
+    self.player.sprite._shoot()
+
+def _detect_collisions(self):
+  player_attack_collision = pygame.sprite.groupcollide(self.buggies, self.player.sprite.player_bullets, True, True)
+  if player_attack_collision:
+    self.player_score += 10
+  for alien in self.buggies.sprites():
+    buggie_attack_collision = pygame.sprite.groupcollide(buggie.bullets, self.player, True, False)
+    if buggie_attack_collision:
+      self.player.sprite.life -=1
+      break
+  buggie_to_player_collision = pygame.sprite.groupcollide(self.buggies, self_player, True, False)
+  if buggie_to_player_collison:
+    self.player.sprite.liefe -= 1
       
