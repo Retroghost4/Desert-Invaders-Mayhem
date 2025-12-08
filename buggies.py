@@ -7,7 +7,7 @@ class Buggies(pygame.sprite.Sprite):
         super().__init__()
         self.x = pos[0]
         self.y = pos[1]
-        img_path = '0'
+        img_path = 'playerbullets.png'
         self.image = pygame.image.load(img_path)
         self.image = pygame.transform.scale(self.image, (size, size))
         self.rect = self.image.get_rect(topleft = pos)
