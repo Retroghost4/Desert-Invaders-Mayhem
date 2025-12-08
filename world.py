@@ -7,7 +7,7 @@ from display import Display
 
 class World: 
   def __init__(self, screen):
-    self.screen = Screen
+    self.screen = screen
     self.player = pygame.sprite.GroupSingle()
     self.buggies = pygame.sprite.Group()
     self.display = Display(self.screen)
@@ -63,15 +63,15 @@ class World:
     if buggie_attack_collision:
       self.player.sprite.life -= 1
       break
-   buggie_to_player_collision = pygame.sprite.groupcollide(self.buggies, self_player, True, False)
-   if buggie_to_player_collison:
-    self.player.sprite.lifee -= 1
+   buggie_to_player_collision = pygame.sprite.groupcollide(self.buggies, self.player, True, False)
+   if buggie_to_player_collision:
+      self.player.sprite.life -= 1
 
   def _buggies_movement(self):
    move_sideward = False
    move_forward = False
 
-  for buggie in self.buggies.sprites():
+   for buggie in self.buggies.sprites():
     if buggie.to_direction == "right" and buggie.rect.right < WIDTH or buggie.to_direction == "left" and buggie.rect.left > 0:
       move_sideward = True
       move_forward = False
@@ -96,7 +96,7 @@ class World:
     self.display.game_over_message()
     break
   
-  if len(self.buggies) == 0 and self.player.sprite.life > 0:
+   if len(self.buggies) == 0 and self.player.sprite.life > 0:
     self.game_level += 1
     self.generate_buggies()
     for buggie in self.buggies.sprites():
