@@ -14,7 +14,7 @@ class World:
     self.game_over = False
     self.player_score = 0
     self.game_level = 1
-    self.generate_world()
+    self._generate_world()
 
   def _generate_world(self):
     player_x, player_y = WIDTH //2, HEIGHT - CHARACTER_SIZE
