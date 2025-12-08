@@ -29,3 +29,17 @@ class World:
     self.display.show_life(self.player.sprite.life)
     self.display.show_score(self.player_score)
     self.display.show_level(self.game_level)
+    self.display.show_life(self.player.sprite.life)
+    self.display.show_score(self.player_score)
+    self.display.show_level(self.game_level)
+
+def player_move(self, attack = False):
+  keys = pygame.key.get_pressed()
+  if keys[pygame.K_a] and not self.game_over or keys[pygame.KLEFT] and not self.game_over:
+    if self.player.sprite.rect.left > 0:
+      self.player.sprite.move_left()
+  if keys[pygame.K_d] and not self.game_over or keys[pygame.K_RIGHT] and not self.game_over:
+    if self.player.sprite.rect.right < WIDTH:
+      self.player.sprite.move_right()
+  
+      
