@@ -12,8 +12,8 @@ class Main:
     self.FPS = pygame.time.Clock()
 
   def main(self): 
-  world = World(self.screen)
-  while True:
+   world = World(self.screen)
+   while True:
     self.screen.fill("black")
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
