@@ -42,6 +42,7 @@ class World:
 
   def player_move(self, attack = False):
    keys = pygame.key.get_pressed()
+   
    if keys[pygame.K_a] and not self.game_over or keys[pygame.K_LEFT] and not self.game_over:
     if self.player.sprite.rect.left > 0:
       self.player.sprite.move_left()
@@ -54,12 +55,13 @@ class World:
    if keys[pygame.K_s] and not self.game_over or keys[pygame.K_DOWN] and not self.game_over:
     if self.player.sprite.rect.bottom < HEIGHT:
       self.player.sprite.move_bottom()
+  
    if keys[pygame.K_r]:
     self.game_over = False
     self.player_score = 0
     self.game_level = 1
     for buggie in self.buggies.sprites():
-      buggie.kill()
+     buggie.kill()
     self._generate_world()
    if attack and not self.game_over:
     self.player.sprite._shoot()
