@@ -33,7 +33,7 @@ class Display:
    self.screen.blit(level, (level_x * 2, (HEIGHT +(SPACE // 2))))
 
   def game_over_message(self):
-    message = self.event_font.render('Mayhem has been defeated!!', True, self.event_color)
+    message = self.event_font.render('Mayhem has lost!!', True, self.event_color)
     self.screen.blit(message, ((WIDTH // 3) - (EVENT_FONT_SIZE // 2), (HEIGHT //2) - (EVENT_FONT_SIZE // 2)))
 
   
