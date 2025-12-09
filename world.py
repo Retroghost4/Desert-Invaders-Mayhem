@@ -92,6 +92,13 @@ class World:
       move_forward = True
       buggie.to_direction = "left" if buggie.to_direction == "right" else "right"
       break
+   
+   for buggie in self.buggies.sprites():
+     if move_sideward and not move_forward:
+       if buggie.to_direction == "right":
+         buggie.move_right()
+     if not move_sideward and move_forward:
+       buggie.move_left()
 
   def _buggie_shoot(self):
    for buggie in self.buggies.sprites():
