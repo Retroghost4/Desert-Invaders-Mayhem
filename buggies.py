@@ -27,7 +27,7 @@ class Buggies(pygame.sprite.Sprite):
 
     def _shoot(self):
         specific_pos = (self.rect.centerx - (BULLET_SIZE // 2), self.rect.centery)
-        self.bullets.add(Bullet(specific_pos, BULLET_SIZE, "enemy"))
+        self.bullets.add(Bullet(specific_pos, BULLET_SIZE, "Enemy"))
 
     def update(self):
         self.rect = self.image.get_rect(topleft=(self.rect.x, self.rect.y))

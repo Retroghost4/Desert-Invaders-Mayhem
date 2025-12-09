@@ -7,13 +7,13 @@ class Bullet(pygame.sprite.Sprite):
     self.x = pos[0]
     self.y = pos[1]
 
-    img_path = '{side}-bullet.png'
+    img_path = f'{side}bullet.png'
     self.image = pygame.image.load(img_path)
     self.image = pygame.transform.scale(self.image, (size, size))
     self.rect = self.image.get_rect(topleft = pos)
     self.mask = pygame.mask.from_surface(self.image)
 
-    if side == 'enemy':
+    if side == 'Enemy':
      self.move_speed = BULLET_SPEED
     elif side == 'player':
      self.move_speed = (- BULLET_SPEED)
