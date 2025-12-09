@@ -5,6 +5,7 @@ from world import World
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT + NAV_THICKNESS))
 pygame.display.set_caption("Desert Invaders")
+img_path = 'desert.png'
 
 class Main: 
   def __init__(self, screen):
@@ -14,7 +15,7 @@ class Main:
   def main(self): 
    world = World(self.screen)
    while True:
-    self.screen.fill("black")
+    self.screen.fill(pygame.image.load(img_path))
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
         pygame.quit()
