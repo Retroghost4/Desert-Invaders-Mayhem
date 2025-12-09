@@ -1,7 +1,7 @@
 # Desert-Invaders-Mayhem
 
 ## Github Repository
-.....
+<https://github.com/Retroghost4/Desert-Invaders-Mayhem.git>
 
 ## Description
 The desert protected by the Magical Mayhem is under attack! Only you, the true hero of the whipping sands, can lead the Magical Mayhem to victory!
