@@ -21,6 +21,7 @@ class Display:
     if life != 0:
       for life in range(life):
         self.screen.blit(life_image, (life_x, HEIGHT + (SPACE // 2)))
+        life_x += life_size
 
   def show_score(self, score): 
      score_x = WIDTH //3
