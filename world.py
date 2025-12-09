@@ -97,23 +97,27 @@ class World:
      if move_sideward and not move_forward:
        if buggie.to_direction == "right":
          buggie.move_right()
+       if buggie.to_direction == "left":
+         buggie.move_left()
+     
      if not move_sideward and move_forward:
-       buggie.move_left()
+       buggie.move_bottom()
 
   def _buggie_shoot(self):
    for buggie in self.buggies.sprites():
      if (WIDTH - buggie.rect.x) // CHARACTER_SIZE == (WIDTH - self.player.sprite.rect.x) // CHARACTER_SIZE:
-      buggie._shoot()
-      break
+       buggie._shoot()
+       break
 
   def _check_game_state(self):
    if self.player.sprite.life <= 0:
     self.game_over = True
     self.display.game_over_message()
    for buggie in self.buggies.sprites():
-    self.game_over = True
-    self.display.game_over_message()
-    break
+    if buggie.rect.top >= HEIGHT:
+      self.game_over = True
+      self.display.game_over_message()
+      break
   
    if len(self.buggies) == 0 and self.player.sprite.life > 0:
     self.game_level += 1
@@ -126,8 +130,8 @@ class World:
     self._buggies_movement()
     self._buggie_shoot()
 
-    self.player.sprite.player_bullets.update()
-    self.player.sprite.player_bullets.draw(self.screen)
+    [self.player.sprite.player_bullets.update()]
+    [self.player.sprite.player_bullets.draw(self.screen)]
 
     [buggie.bullets.update() for buggie in self.buggies.sprites()]
     [buggie.bullets.draw(self.screen) for buggie in self.buggies.sprites()]

@@ -2,7 +2,7 @@ import pygame, sys
 from settings import WIDTH, HEIGHT, NAV_THICKNESS
 from world import World
 
-pygame.init()
+pygame.init()              
 screen = pygame.display.set_mode((WIDTH, HEIGHT + NAV_THICKNESS))
 pygame.display.set_caption("Desert Invaders")
 bg = pygame.image.load('desert.png')
